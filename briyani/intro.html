@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Leaf</title>
+ <style> 
+        * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Baloo Bhai 2", cursive;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+
+  background-color: #262626;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  overflow: hidden;
+}
+/* #navbar{
+position:fixed;
+top:0;
+left:0;
+} */
+
+ul {
+  display: flex;
+  list-style: none;
+  /* text-align: center; */
+  color: #fff;
+  gap: 2rem;
+  position: fixed;
+  right: 0;
+  padding-right: 15px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  background-color: rgb(22, 22, 94);
+  border-radius: 10px;
+  padding: 10px;
+}
+.logo {
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 2rem;
+  color: #fff;
+
+  margin-right: 700px;
+}
+.btn {
+  margin-top: 30px;
+
+  color: white;
+  cursor: pointer;
+  border-radius: 25px;
+  padding: 1rem 2rem;
+}
+
+img {
+  width: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+header {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
+    url(https://images.indianexpress.com/2023/12/food.jpg);
+  background-position: center;
+  background-size: cover;
+
+  height: 100vh;
+}
+#home {
+  display: flex;
+
+  text-align: center;
+  flex-direction: column;
+  padding: 220px 200px;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+.overlay {
+  background: rgb(0, 0, 0, -5);
+  height: 100vh;
+}
+#mobile {
+  display: none;
+  height: 70px;
+  line-height: 40px;
+  /* background-color: rgba(0, 0, 0, 0.200); */
+  background-color: #262626;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+#mobile ul li {
+  justify-content: flex-end;
+  padding: -25px 5px;
+  margin: -38px 0;
+  font-size: 1rem;
+  color: white;
+}
+#mobile ul li a {
+  display: flex;
+  text-decoration: none;
+  color: white;
+}
+@media screen and (max-width: 768px) {
+  #mobile {
+    display: block;
+  }
+  #navbar {
+    display: none;
+  }
+  #home {
+    display: flex;
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .logo1 {
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1.8rem;
+    color: #fff;
+
+    margin-left: 20px;
+    margin-right: 500px;
+    margin-top: 15px;
+  }
+  a:hover {
+    background-color: rgb(22, 22, 94);
+    border-radius: 16px;
+    padding: 6px 8px 6px 8px;
+    margin: -7px;
+  }
+  header {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
+      url(https://images.indianexpress.com/2023/12/food.jpg);
+    background-position: center;
+    background-size: cover;
+
+    height: 180vh;
+  }
+}
+.title {
+  text-align: center;
+  width: 100%;
+  color: yellow;
+}
+
+#menu {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 20px 40px;
+  background: rgb(245, 242, 242);
+  min-height: 100vh;
+  /* margin-bottom: 20px; */
+}
+.heading {
+  background: rgb(245, 242, 242);
+  color: #373333;
+  margin-bottom: 30px;
+  padding: 60px 0 30px 0;
+  grid-column: 1/-1;
+  text-align: center;
+}
+.heading  h3 {
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 5px;
+}
+.card {
+  display: grid;
+  position: relative;
+  grid-template-rows: auto 1fr;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: 5px 20px;
+ 
+}
+
+.card img {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  border-radius: 15px 15px 0 0;
+}
+
+.details {
+  padding: 20px 10px;
+  display: grid;
+  grid-template-rows: auto 1fr 50px;
+  grid-row-gap: 15px;
+}
+.details-sub {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.details-sub h5 {
+  font-weight: 600;
+  font-size: 18px;
+}
+.price {
+  text-align: right;
+}
+.details p {
+  color: #6f6f6f;
+  font-size: 15px;
+  line-height: 25px;
+  align-self: stretch;
+}
+.details button {
+  /* background-color: #cb202d; */
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 7px;
+  width: 180px;
+}
+
+#about {
+  padding: 25px 0;
+}
+.about_row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 100px;
+}
+.about_column {
+  flex: 1;
+}
+#btn1 {
+  margin-top: 20px;
+  padding: 10px 10px;
+  border-radius: 15px;
+}
+.about_column img {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  object-fit: fill;
+  margin: 10px;
+}
+.title {
+  color: #373333;
+  margin-bottom: 30px;
+  padding: 50px 0 30px 0;
+  text-align: center;
+}
+
+#order {
+  background: rgb(245, 242, 242);
+  color: white;
+  min-height: 100vh;
+}
+.title1 {
+  color: #373333;
+  margin-bottom: 30px;
+  padding: 50px 0 30px 0;
+  text-align: center;
+}
+form {
+  width: 450px;
+  background-color: white;
+
+  box-shadow: 0 0 20px 0 rgb(213, 212, 210);
+  margin: auto;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+.inp_box {
+  width: 350px;
+  height: 37px;
+  /* margin-top: 20px; */
+  margin: 25px 45px 0 45px;
+  padding: 0 10px;
+  border-radius: 14px;
+  border: 1px solid #777;
+  outline: none;
+}
+.text_area {
+  height: 160px;
+  padding-top: 10px;
+}
+.btn2 {
+  border-radius: 20px;
+  margin: 20px 45px;
+  padding: 0 10px;
+  /* margin: auto; */
+  width: 30%;
+}
+
+textarea {
+  height: 150px;
+  padding-top: 10px;
+}
+.btn2 {
+  border-radius: 15px;
+  color: #fff;
+  margin-top: 18px;
+  padding: 10px;
+}
+button {
+  background-color: rgb(22, 22, 94);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgb(94, 158, 61);
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  width: 100%;
+  background-color: #262626;
+  color: white;
+}
+    </style>
+</head>
+
+<body>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <div class="container">
+
+        <header>
+            <nav id="navbar">
+                <div class="logo"><span>Foodcourt</span></div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#order">Order</a></li>
+                </ul>
+            </nav>
+            <div id="mobile">
+                <div class="logo1"><span>Foodcourt</span></div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#order">Order</a></li>
+                </ul>
+            </div>
+
+            <div class="overlay">
+                <section id="home">
+                    <h1 class="h-primary">Welcome to Green Leaf</h1>   
+                </section>
+            </div>
+        </header>
+
+
+
+        <div id="menu">
+            <div class="heading">
+                <h1>Menu</h1>
+                <h3>Today's Special</h3>
+            </div>
+            <div class="card">
+                <img src="https://www.12taste.com/in/wp-content/uploads/2020/04/dum-handi-chicken-biryani-is-prepared-earthen-clay-pot-called-haandi-popular-indian-non-vegetarian-food-scaled.jpg" alt="">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Chicken Biriyani</h5>
+                        <h5 class="price"> $250 </h5>
+                    </div>
+                    <p> </p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://t4.ftcdn.net/jpg/04/18/22/53/360_F_418225358_e5YoOcHll3N6Z3KcsWxypohDCo0FAjHf.jpg"  alt="">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Malabar Chicken Biriyani</h5>
+                        <h5 class="price"> $350</h5>
+                    </div>
+                    <p></p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://flavorthemoments.com/wp-content/uploads/2024/01/air-fryer-drumsticks-1.jpg" alt="">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Chicken leg pieces</h5>
+                        <h5 class="price">$</h5>
+                    </div>
+                    <p> </p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2022/12/Tandoori-Chicken-1.jpg" alt="">
+                    
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Tandoori Chicken </h5>
+                        <h5 class="price">$</h5>
+                    </div>
+                    <p></p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/bowl-fried-noodles-with-pile-parsley-top_893055-88.jpg" alt="">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5> Noodles</h5>
+                        <h5 class="price">$</h5>
+                    </div>
+                    <p> </p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://realfood.tesco.com/media/images/380x250-ChickenSatayBurgers-09f533ee-c344-493f-9e10-dd4fe6f3b5b4-0-380x250.jpg" alt="">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Burger</h5>
+                        <h5 class="price">$</h5>
+                    </div>
+                    <p></p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://smithakalluraya.com/wp-content/uploads/2019/07/paneer-butter-masala-recipe-1080x1556.jpg" alt="">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Panner Butter Masala</h5>
+                        <h5 class="price">$</h5>
+                    </div>
+                    <p> </p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://www.finedininglovers.com/sites/g/files/xknfdk626/files/styles/open_graph_image/public/2023-02/Dosa%20recipe%20via%20Deepla%20Tamang%20Unsplash.jpeg?itok=HvU5YRLp" alt="">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Dosa</h5>
+                        <h5 class="price"> $100</h5>
+                    </div>
+                    <p></p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://content3.jdmagicbox.com/comp/mumbai/k1/9999p4633.4633.180225170307.v9k1/catalogue/5paisai-idlly-kadai-hotel-shenkottai-shencottah-hotels-94gh48wse4.jpg" alt="">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Idlly with vadai</h5>
+                        <h5 class="price">$250</h5>
+                    </div>
+                    <p></p>
+                    <button>BUY NOW</button>
+                </div>
+            </div>
+
+          <div class="card">
+            <img src="https://res.cloudinary.com/rainforest-cruises/images/c_fill,g_auto/f_auto,q_auto/w_1120,h_732,c_fill,g_auto/v1661347392/india-food-paratha/india-food-paratha-1120x732.jpg" alt="">
+            <div class="details">
+                <div class="details-sub">
+                    <h5>parotta</h5>
+                    <h5 class="price">$250</h5>
+                </div>
+                <p></p>
+                <button>BUY NOW</button>
+            </div>
+        </div>
+      
+
+      <div class="card">
+        <img src="https://images.squarespace-cdn.com/content/v1/612d4825ee7c3b7ba3e215b7/1667458982443-N6XGU1PU7335QEMVUP7M/Delicious+food.png" alt="">
+        <div class="details">
+            <div class="details-sub">
+                <h5>Indian Meals</h5>
+                <h5 class="price">$250</h5>
+            </div>
+            <p></p>
+            <button>BUY NOW</button>
+        </div>
+    </div>
+  
+
+  <div class="card">
+    <img src="https://www.sharmispassions.com/wp-content/uploads/2017/04/SouthIndianMeals4-e1659490836727-435x500.jpg" alt="">
+    <div class="details">
+        <div class="details-sub">
+            <h5>South Indian Meals</h5>
+            <h5 class="price">$250</h5>
+        </div>
+        <p></p>
+        <button>BUY NOW</button>
+    </div>
+</div>
+
+
+<div class="card">
+    <img src="https://cdn.dotpe.in/longtail/store-items/6407273/QJnrmHNx.jpeg" alt="">
+    <div class="details">
+        <div class="details-sub">
+            <h5>Vanjaram Meen fry</h5>
+            <h5 class="price">$250</h5>
+        </div>
+        <p></p>
+        <button>BUY NOW</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://www.thetakeiteasychef.com/wp-content/uploads/2017/06/Chilli-Fried-Prawns-1-500x500.jpg" alt="">
+    <div class="details">
+        <div class="details-sub">
+            <h5>Chilli Fried Prawns</h5>
+            <h5 class="price">$250</h5>
+        </div>
+        <p></p>
+        <button>BUY NOW</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://thumbs.dreamstime.com/b/chicken-biryani-indian-biriyani-dhum-using-jeera-rice-spices-arranged-earthen-ware-raitha-lemon-pickle-grey-231669590.jpg" alt="">
+    <div class="details">
+        <div class="details-sub">
+            <h5>Mandhi Chicken Biriyani</h5>
+            <h5 class="price">$250</h5>
+        </div>
+        <p></p>
+        <button>BUY NOW</button>
+    </div>
+</div>
+</div>
+</div>
+
+
+        <div id="about">
+            <h1 class="title">About us</h1>
+            <div class="about_row">
+                <div class="about_column">
+                    <p>restaurant, establishment where refreshments or meals may be procured by the public. The public dining room that ultimately came to be known as the restaurant originated in France, 
+                        and the French have continued to make major contributions to the restaurant's development. restaurant is a business that prepares and serves food and drinks to customers. Meals are 
+                        generally served and eaten on the premises,but many restaurants also offer take-out and food delivery services.I am at a restaurant with my family. When the hostess shows us our table,
+                        she gives us menus - one menu for each person. I open the menu and start to read. There are so many choices! The first thing I have to decide is what to drink, because that is the first 
+                        question the waiter will ask us.I choose lemonade.Next, I look at the page that says ''Appetizers.Appetizers are little snacks that you eat while you wait for your main meal. Mom says 
+                        we can get one appetizer for the four of us to share, but my sister and I have to agree. I like nachos, but my sister doesn't.
+                         My sister likes onion rings, but I don't. We decide on spinach dip with chips.
+                       </p>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
